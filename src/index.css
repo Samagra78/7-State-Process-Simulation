@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-supa-bg: #171717;
+  --color-supa-bg-dark: #0f0f0f;
+  --color-supa-green: #3ecf8e;
+  --color-supa-green-light: #00c573;
+  --color-supa-green-border: rgba(62, 207, 142, 0.3);
+  --color-supa-border: #2e2e2e;
+  --color-supa-border-light: #363636;
+  --color-supa-border-subtle: #242424;
+  --color-supa-text: #fafafa;
+  --color-supa-text-muted: #898989;
+  --color-supa-text-light: #b4b4b4;
+
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Source Code Pro", "Office Code Pro", Menlo, monospace;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color-scheme: dark;
+  background-color: var(--color-supa-bg);
+  color: var(--color-supa-text);
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+/* Supabase-style Pill Buttons */
+.btn-primary {
+  @apply bg-supa-bg-dark text-supa-text px-8 py-2 rounded-full border border-supa-text hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all font-medium text-sm;
+}
+
+.btn-secondary {
+  @apply bg-transparent text-supa-text px-8 py-2 rounded-full border border-supa-border hover:border-supa-border-light transition-all font-medium text-sm;
+}
+
+/* Glass panel */
+.glass-panel {
+  @apply bg-[#1c1c1c]/80 backdrop-blur-md border border-supa-border shadow-lg rounded-xl;
+}
+
+/* Typography styles */
+.hero-text {
+  @apply text-7xl font-normal leading-none;
+}
+
+.section-text {
+  @apply text-4xl font-normal leading-tight;
+}
+
+.mono-label {
+  @apply font-mono text-xs uppercase text-supa-text-muted tracking-[1.2px];
+}
