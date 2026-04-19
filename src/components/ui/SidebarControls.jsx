@@ -125,7 +125,7 @@ export default function SidebarControls() {
         <button 
           onClick={terminate}
           disabled={currentState !== STATES.RUNNING}
-          className={`w-full flex items-center justify-between px-4 py-3 rounded-lg border transition-all mt-4 ${
+          className={`w-full flex items-center justify-between px-4 py-3 rounded-lg border transition-all ${
             currentState === STATES.RUNNING 
               ? 'bg-supa-bg border-[#ef4444]/30 text-[#ef4444] hover:bg-[#ef4444]/10' 
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
