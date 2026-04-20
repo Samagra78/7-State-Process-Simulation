@@ -1,13 +1,13 @@
 import { create } from 'zustand';
 
 export const STATES = {
-  NEW: 'NEW',
-  READY: 'READY',
-  RUNNING: 'RUNNING',
-  BLOCKED: 'BLOCKED',
-  SUSPEND_READY: 'SUSPEND_READY',
-  SUSPEND_BLOCKED: 'SUSPEND_BLOCKED',
-  TERMINATED: 'TERMINATED'
+  NEW: 'New',
+  READY: 'Ready',
+  RUNNING: 'Running',
+  BLOCKED: 'Blocked',
+  SUSPEND_READY: 'Suspended Ready',
+  SUSPEND_BLOCKED: 'Suspended Blocked',
+  TERMINATED: 'Exit'
 };
 
 const VALID_TRANSITIONS = {

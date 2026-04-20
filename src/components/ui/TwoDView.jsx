@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ArrowLeft } from 'lucide-react';
 
 const stateMachineLogic = {
   "New": {
@@ -90,13 +91,16 @@ const TwoDView = ({ onBack }) => {
 
     return (
       <div className="relative" style={style} key={stateName}>
+        {isActive && (
+           <div className="absolute -inset-1 rounded-lg border border-supa-green-border bg-[rgba(62,207,142,0.05)] animate-pulse z-0 pointer-events-none"></div>
+        )}
         <div 
-          className={`p-4 rounded-lg text-center backdrop-blur-[20px] transition-all duration-300 w-32 relative z-10 
+          className={`p-4 rounded-lg text-center backdrop-blur-md transition-all duration-300 w-32 relative z-10 
             ${isActive 
-              ? 'bg-cyan-500/20 border border-cyan-300/30 text-cyan-50 font-bold shadow-[0_8px_32px_0_rgba(6,182,212,0.27)]' 
-              : 'bg-white/5 border border-white/20 text-gray-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.27)] hover:bg-white/10'}`}
+              ? 'bg-supa-bg border border-supa-green text-supa-text font-medium' 
+              : 'bg-[#1c1c1cd0] border border-supa-border text-supa-text-muted hover:border-supa-border-light'}`}
         >
-          <div className="text-sm border-b border-white/20 mb-2 pb-1 opacity-80">
+          <div className={`mono-label border-b pb-1 mb-2 ${isActive ? 'border-supa-green-border text-supa-green-light' : 'border-supa-border'}`}>
             {node.memory}
           </div>
           {stateName}
@@ -109,36 +113,34 @@ const TwoDView = ({ onBack }) => {
   const pointerNode = nodes[currentState];
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-black text-white relative overflow-hidden">
-      
-      {/* Decorative background blobs to enhance glass refraction */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-700/30 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-700/30 rounded-full blur-[100px] pointer-events-none"></div>
+    <div className="flex flex-col h-screen w-screen bg-supa-bg text-supa-text relative overflow-hidden font-sans">
 
       {/* Header */}
-      <div className="p-4 flex justify-between items-center bg-white/5 backdrop-blur-[20px] shadow-lg border-b border-white/10 z-10 text-white relative">
-        <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-orange-400 bg-clip-text text-transparent">
+      <div className="p-4 px-6 flex justify-between items-center bg-supa-bg border-b border-supa-border z-10">
+        <h2 className="text-xl font-medium tracking-tight text-supa-text flex items-center gap-3">
+          <div className="w-2 h-2 rounded-full bg-supa-green shadow-[0_0_8px_rgba(62,207,142,0.6)]"></div>
           2-D Process Lifecycle
         </h2>
         <button 
           onClick={onBack}
-          className="px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded backdrop-blur-[10px] transition-colors"
+          className="flex items-center gap-2 px-4 py-1.5 bg-transparent border border-supa-border hover:border-supa-border-light text-supa-text rounded-full transition-all text-sm font-medium cursor-pointer"
         >
+          <ArrowLeft size={16} />
           Back to Menu
         </button>
       </div>
 
-      <div className="flex-1 flex flex-col p-8 items-center overflow-auto relative z-10">
-        <div className="w-full max-w-[1300px] bg-white/5 backdrop-blur-[20px] rounded-xl p-8 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] flex flex-col items-center">
+      <div className="flex-1 flex flex-col p-8 items-center overflow-auto relative z-10 w-full">
+        <div className="w-full max-w-[1300px] flex flex-col items-center">
            
           {/* Diagram Layout */}
-          <div className="relative w-[1250px] h-[750px] mb-8 rounded-lg overflow-hidden">
+          <div className="relative w-[1250px] h-[750px] mb-8 overflow-hidden">
             
             {/* SVG for lines and arrows */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
               <defs>
-                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                  <path d="M0,0 L0,6 L9,3 z" fill="#9CA3AF" />
+                <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L6,3 z" fill="#363636" />
                 </marker>
               </defs>
               
@@ -146,27 +148,30 @@ const TwoDView = ({ onBack }) => {
                 <g key={idx}>
                   <path 
                     d={t.path} 
-                    stroke="#9CA3AF" 
-                    strokeWidth="2" 
+                    stroke="#363636" 
+                    strokeWidth="1.5" 
                     fill="none" 
-                    strokeDasharray="4 2"
+                    strokeDasharray="4 4"
                     markerEnd="url(#arrow)" 
                   />
                   <rect 
                     x={t.textX - 45} 
-                    y={t.textY - 10} 
+                    y={t.textY - 14} 
                     width="90" 
                     height="20" 
-                    fill="rgba(0, 0, 0, 0.4)" 
+                    fill="#171717" 
                     rx="4" 
+                    stroke="#2e2e2e"
                   />
                   <text 
                     x={t.textX} 
-                    y={t.textY + 4} 
-                    fill="#D1D5DB" 
-                    fontSize="12" 
+                    y={t.textY} 
+                    fill="#b4b4b4" 
+                    fontSize="10" 
                     textAnchor="middle" 
-                    className="font-medium"
+                    fontFamily='"Source Code Pro", monospace'
+                    letterSpacing="1px"
+                    textTransform="uppercase"
                   >
                     {t.action}
                   </text>
@@ -174,54 +179,47 @@ const TwoDView = ({ onBack }) => {
               ))}
             </svg>
 
-            {/* Active State Pointer (Animated) */}
-            <div 
-              className="absolute z-20 transition-all duration-500 ease-in-out transform -translate-x-1/2 flex flex-col items-center"
-              style={{ left: `${pointerNode.x}px`, top: `${pointerNode.y - 80}px` }}
-            >
-              <div className="absolute top-0 flex flex-col items-center animate-bounce">
-                <div className="w-5 h-5 rounded-full bg-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.9)] border-2 border-yellow-200"></div>
-                <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-yellow-400 mt-1"></div>
-              </div>
-            </div>
-
             {/* State Nodes */}
             {Object.keys(nodes).map(renderStateBox)}
           </div>
           
-          <div className="w-full">
-            <div className="mb-6 bg-white/5 backdrop-blur-[10px] p-6 rounded-xl border border-white/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]">
-              <h3 className="text-xl font-semibold mb-2 text-cyan-300">Current State: {currentState}</h3>
-              <p className="text-gray-200 text-lg">
+          {/* Telemetry and Action Controls */}
+          <div className="w-full flex gap-6 max-w-5xl self-center">
+            <div className="flex-1 glass-panel p-6 border border-supa-border">
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="mono-label text-supa-green-light">CURRENT STATE:</h3>
+                <span className="text-sm font-bold text-supa-text uppercase tracking-widest">{currentState}</span>
+              </div>
+              <p className="text-supa-text-muted text-sm leading-relaxed">
                 {currentStateInfo.info}
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-[10px] p-6 rounded-xl border border-white/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.2)]">
+            <div className="flex-[2] glass-panel p-6 border border-supa-border">
               {currentStateInfo.available_transitions.length > 0 ? (
                 <>
-                  <h4 className="text-lg font-medium mb-4 text-orange-200">Choose the next action to move the process forward:</h4>
-                  <div className="flex flex-wrap gap-4">
+                  <h4 className="mono-label mb-4 text-supa-text-muted tracking-[1px]">Dispatch System Action</h4>
+                  <div className="flex flex-wrap gap-3">
                     {currentStateInfo.available_transitions.map((transition, idx) => (
                       <button
                         key={idx}
                         onClick={() => handleTransition(transition.target_state)}
-                        className="px-6 py-3 bg-cyan-600/30 hover:bg-cyan-500/50 border border-cyan-400/50 rounded-lg font-semibold transition-all flex items-center space-x-2 shadow-[0_4px_15px_0_rgba(6,182,212,0.2)] text-cyan-50 backdrop-blur-[5px]"
+                        className="px-5 py-2.5 bg-supa-bg hover:bg-[#1c1c1c] border border-supa-border hover:border-supa-border-light rounded-md text-sm font-medium transition-all flex items-center space-x-2 text-supa-text cursor-pointer"
                       >
                         <span>{transition.action}</span>
-                        <span className="text-cyan-200 opacity-70">→ {transition.target_state}</span>
+                        <span className="text-supa-text-muted font-mono text-xs ml-1">→ {transition.target_state}</span>
                       </button>
                     ))}
                   </div>
                 </>
               ) : (
-                <div className="p-4 bg-green-900/30 border border-green-500/50 backdrop-blur-[10px] rounded-lg text-green-300 font-semibold text-center shadow-[0_4px_15px_0_rgba(34,197,94,0.1)]">
-                  Process Execution Complete.
+                <div className="h-full flex flex-col justify-center items-center py-2">
+                  <p className="text-supa-text-muted text-sm font-medium mb-4">Process Execution Complete.</p>
                   <button 
-                  onClick={() => setCurrentState('New')}
-                  className="mt-4 block mx-auto px-6 py-2 bg-green-600/40 hover:bg-green-500/60 border border-green-400/50 rounded-lg text-white transition-all backdrop-blur-[5px]"
+                    onClick={() => setCurrentState('New')}
+                    className="btn-secondary rounded-md"
                   >
-                   Restart Process
+                   Restart OS Process
                   </button>
                 </div>
               )}

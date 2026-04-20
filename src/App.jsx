@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ArrowLeft } from 'lucide-react';
 import Scene from './components/diorama/Scene';
 import LayoutOverlay from './components/ui/LayoutOverlay';
 import LandingScreen from './components/ui/LandingScreen';
@@ -18,12 +19,13 @@ function App() {
   return (
     <main className="relative w-screen h-screen overflow-hidden bg-supa-bg">
       <Scene />
-      <div className="absolute top-4 left-4 z-50">
+      <div className="absolute top-6 left-6 z-50">
         <button 
           onClick={() => setView('landing')}
-          className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition shadow cursor-pointer border border-gray-600 font-semibold text-sm"
+          className="flex items-center gap-2 px-4 py-2 bg-supa-bg/80 backdrop-blur-md border border-supa-border hover:border-supa-border-light text-supa-text rounded-full transition-all text-sm font-medium cursor-pointer shadow-lg"
         >
-          ← Back to Menu
+          <ArrowLeft size={16} />
+          Back to Menu
         </button>
       </div>
       <LayoutOverlay />

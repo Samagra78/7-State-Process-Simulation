@@ -27,7 +27,7 @@ export function TheForge() {
         <meshStandardMaterial color={hovered ? "#393939" : "#2e2e2e"} wireframe />
       </Box>
       <pointLight position={[0, 2, 0]} color="#fafafa" intensity={0.5} distance={5} />
-      <DistrictTooltip visible={hovered} title="STATE: NEW" desc="The Forge / Ingestion Node" position={[0, 1.5, 0]} />
+      {hovered && <DistrictTooltip visible={hovered} title="STATE: New" desc="The Forge / Ingestion Node" position={[0, 1.5, 0]} />}
     </group>
   );
 }
@@ -42,7 +42,7 @@ export function MemoryGrid() {
     >
       <Grid position={[0, -1, 0]} args={[4, 4]} cellSize={0.5} cellThickness={0.5} cellColor={hovered ? "#00c573" : "#3ecf8e"} sectionSize={2} sectionThickness={1} sectionColor="#00c573" fadeDistance={10} fadeStrength={1} />
       <pointLight position={[0, 1, 0]} color="#3ecf8e" intensity={1} distance={5} />
-      <DistrictTooltip visible={hovered} title="STATE: READY" desc="Memory Grid / RAM Buffer" position={[0, 1.5, 0]} />
+      {hovered && <DistrictTooltip visible={hovered} title="STATE: Ready" desc="Memory Grid / RAM Buffer" position={[0, 1.5, 0]} />}
     </group>
   );
 }
@@ -63,7 +63,7 @@ export function CPUCore() {
       </Cylinder>
       <Sparkles count={50} scale={4} size={2} speed={0.4} opacity={0.5} color="#00c573" />
       <pointLight position={[0, 2, 0]} color="#00c573" intensity={2} distance={10} />
-      <DistrictTooltip visible={hovered} title="STATE: RUNNING" desc="CPU Core / The Monolith" position={[0, 3, 0]} />
+      {hovered && <DistrictTooltip visible={hovered} title="STATE: Running" desc="CPU Core / The Monolith" position={[0, 3, 0]} />}
     </group>
   );
 }
@@ -86,7 +86,7 @@ export function IODocks() {
         <meshStandardMaterial color="#eab308" emissive="#eab308" emissiveIntensity={1} />
       </Box>
       <pointLight position={[0, 2, 0]} color="#eab308" intensity={1.5} distance={6} />
-      <DistrictTooltip visible={hovered} title="STATE: BLOCKED" desc="I/O Docks / Waiting" position={[0, 2.5, 0]} />
+      {hovered && <DistrictTooltip visible={hovered} title="STATE: Blocked" desc="I/O Docks / Waiting" position={[0, 2.5, 0]} />}
     </group>
   );
 }
@@ -103,7 +103,7 @@ export function ColdStorage() {
         <MeshDistortMaterial color="#60a5fa" transparent opacity={hovered ? 0.5 : 0.3} distort={0.2} speed={1} />
       </Box>
       <pointLight position={[0, 1, 0]} color="#60a5fa" intensity={1} distance={5} />
-      <DistrictTooltip visible={hovered} title="STATE: SUSPEND_READY" desc="Cold Storage / Disk Swap" position={[0, 1.5, 0]} />
+      {hovered && <DistrictTooltip visible={hovered} title="STATE: Suspended Ready" desc="Cold Storage / Disk Swap" position={[0, 1.5, 0]} />}
     </group>
   );
 }
@@ -121,7 +121,7 @@ export function Quarantine() {
       </Box>
       <Grid position={[0, 1, 0]} args={[3, 3]} cellSize={0.2} cellThickness={1} cellColor="#a855f7" sectionSize={0} fadeDistance={4} />
       <pointLight position={[0, 0, 0]} color="#a855f7" intensity={2} distance={4} />
-      <DistrictTooltip visible={hovered} title="STATE: SUSPEND_BLOCKED" desc="The Quarantine / Deep Wait" position={[0, 2.5, 0]} />
+      {hovered && <DistrictTooltip visible={hovered} title="STATE: Suspended Blocked" desc="The Quarantine / Deep Wait" position={[0, 2.5, 0]} />}
     </group>
   );
 }
@@ -138,7 +138,7 @@ export function Archive() {
         <meshStandardMaterial color={hovered ? "#363636" : "#171717"} wireframe />
       </Cylinder>
       <Sparkles count={100} scale={3} size={1} speed={1} opacity={0.2} color="#a1a1aa" position={[0, 2, 0]} />
-      <DistrictTooltip visible={hovered} title="STATE: TERMINATED" desc="The Archive / Dissolution" position={[0, 3, 0]} />
+      {hovered && <DistrictTooltip visible={hovered} title="STATE: Exit" desc="The Archive / Dissolution" position={[0, 3, 0]} />}
     </group>
   );
 }

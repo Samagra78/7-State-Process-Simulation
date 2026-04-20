@@ -2,28 +2,36 @@ import React from 'react';
 
 const LandingScreen = ({ onSelectView }) => {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen bg-black text-white relative overflow-hidden">
-      {/* Subtle ambient blobs to match the 2-D view theme */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-700/20 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-700/20 rounded-full blur-[100px] pointer-events-none"></div>
+    <div className="flex flex-col items-center justify-center w-screen h-screen bg-supa-bg text-supa-text relative overflow-hidden font-sans">
 
-      <h1 className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-orange-400 bg-clip-text text-transparent relative z-10">
-        7-State Process Simulation
-      </h1>
-      
-      <div className="flex space-x-8 relative z-10">
-        <button
-          onClick={() => onSelectView('2d')}
-          className="px-10 py-5 bg-cyan-600/80 hover:bg-cyan-500 border border-cyan-400/50 rounded-xl text-xl font-semibold transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.4)] backdrop-blur-sm text-white"
-        >
-          2-D View
-        </button>
-        <button
-          onClick={() => onSelectView('3d')}
-          className="px-10 py-5 bg-orange-600/80 hover:bg-orange-500 border border-orange-400/50 rounded-xl text-xl font-semibold transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(249,115,22,0.4)] backdrop-blur-sm text-white"
-        >
-          3-D View
-        </button>
+      <div className="flex flex-col items-center z-10 w-full max-w-4xl px-6">
+        <p className="mono-label tracking-[1.2px] text-supa-text-muted mb-4 uppercase">
+          Interactive Architecture
+        </p>
+
+        <h1 className="text-6xl sm:text-7xl font-sans tracking-tight leading-none mb-10 text-center text-supa-text">
+          Simulate <span className="text-supa-green-light font-medium">Process Lifecycle</span>
+        </h1>
+
+        <p className="text-supa-text-muted tracking-tight text-lg mb-12 text-center max-w-2xl leading-relaxed">
+          Explore the 7-state OS transition model through interactive telemetry mapping. Choose between a sequential 2D flowchart or an isometric 3D WebGL diorama.
+        </p>
+
+        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 relative z-10 w-full sm:w-auto mt-4">
+          <button
+            onClick={() => onSelectView('3d')}
+            className="w-full sm:w-auto btn-secondary cursor-pointer hover:bg-supa-green hover:text-[#171717] hover:border-supa-green hover:shadow-[0_0_20px_rgba(62,207,142,0.4)] transition-all duration-300"
+          >
+            Launch 3D Engine
+          </button>
+
+          <button
+            onClick={() => onSelectView('2d')}
+            className="w-full sm:w-auto btn-secondary cursor-pointer hover:bg-supa-green hover:text-[#171717] hover:border-supa-green hover:shadow-[0_0_20px_rgba(62,207,142,0.4)] transition-all duration-300"
+          >
+            Launch 2D Flowchart
+          </button>
+        </div>
       </div>
     </div>
   );
