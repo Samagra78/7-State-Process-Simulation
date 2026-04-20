@@ -60,13 +60,13 @@ const nodes = {
 const transitionsRender = [
   { from: 'New', to: 'Ready', action: 'Admit', path: 'M 214 60 L 376 60', textX: 295, textY: 40 },
   { from: 'Ready', to: 'Running', action: 'Dispatch', path: 'M 514 40 L 776 40', textX: 645, textY: 20 },
-  { from: 'Running', to: 'Ready', action: 'Timeout', path: 'M 776 80 L 514 80', textX: 645, textY: 85 },
+  { from: 'Running', to: 'Ready', action: 'Timeout', path: 'M 776 80 L 514 80', textX: 645, textY: 108 },
   { from: 'Running', to: 'Blocked', action: 'Event wait', path: 'M 820 100 L 700 240', textX: 770, textY: 160 },
   { from: 'Running', to: 'Exit', action: 'Release', path: 'M 914 60 L 1026 60', textX: 970, textY: 40 },
   { from: 'Blocked', to: 'Ready', action: 'Event occur', path: 'M 600 240 L 500 100', textX: 530, textY: 160 },
   { from: 'Blocked', to: 'Suspended Blocked', action: 'Suspend', path: 'M 670 320 L 670 460', textX: 720, textY: 380 },
   { from: 'Suspended Blocked', to: 'Blocked', action: 'Activate', path: 'M 630 460 L 630 320', textX: 580, textY: 380 },
-  { from: 'Suspended Blocked', to: 'Suspended Ready', action: 'Event occur', path: 'M 586 510 L 524 510', textX: 555, textY: 490 },
+  { from: 'Suspended Blocked', to: 'Suspended Ready', action: 'Event occur', path: 'M 586 510 L 524 510', textX: 555, textY: 450 },
   { from: 'Suspended Ready', to: 'Ready', action: 'Activate', path: 'M 430 460 L 430 100', textX: 380, textY: 270 },
   { from: 'Ready', to: 'Suspended Ready', action: 'Suspend', path: 'M 470 100 L 470 460', textX: 520, textY: 270 },
 ];
