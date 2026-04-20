@@ -25,7 +25,7 @@ function App() {
           className="flex items-center gap-2 px-4 py-2 bg-supa-bg/80 backdrop-blur-md border border-supa-border hover:border-supa-border-light text-supa-text rounded-full transition-all text-sm font-medium cursor-pointer shadow-lg"
         >
           <ArrowLeft size={16} />
-          Back to Menu
+          <span className='text-sm font-semibold text-supa-text'>Back to Menu</span>
         </button>
       </div>
       <LayoutOverlay />

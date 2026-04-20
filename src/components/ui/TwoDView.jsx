@@ -60,13 +60,13 @@ const nodes = {
 const transitionsRender = [
   { from: 'New', to: 'Ready', action: 'Admit', path: 'M 214 60 L 376 60', textX: 295, textY: 40 },
   { from: 'Ready', to: 'Running', action: 'Dispatch', path: 'M 514 40 L 776 40', textX: 645, textY: 20 },
-  { from: 'Running', to: 'Ready', action: 'Timeout', path: 'M 776 80 L 514 80', textX: 645, textY: 85 },
+  { from: 'Running', to: 'Ready', action: 'Timeout', path: 'M 776 80 L 514 80', textX: 645, textY: 108 },
   { from: 'Running', to: 'Blocked', action: 'Event wait', path: 'M 820 100 L 700 240', textX: 770, textY: 160 },
   { from: 'Running', to: 'Exit', action: 'Release', path: 'M 914 60 L 1026 60', textX: 970, textY: 40 },
   { from: 'Blocked', to: 'Ready', action: 'Event occur', path: 'M 600 240 L 500 100', textX: 530, textY: 160 },
   { from: 'Blocked', to: 'Suspended Blocked', action: 'Suspend', path: 'M 670 320 L 670 460', textX: 720, textY: 380 },
   { from: 'Suspended Blocked', to: 'Blocked', action: 'Activate', path: 'M 630 460 L 630 320', textX: 580, textY: 380 },
-  { from: 'Suspended Blocked', to: 'Suspended Ready', action: 'Event occur', path: 'M 586 510 L 524 510', textX: 555, textY: 490 },
+  { from: 'Suspended Blocked', to: 'Suspended Ready', action: 'Event occur', path: 'M 586 510 L 524 510', textX: 555, textY: 450 },
   { from: 'Suspended Ready', to: 'Ready', action: 'Activate', path: 'M 430 460 L 430 100', textX: 380, textY: 270 },
   { from: 'Ready', to: 'Suspended Ready', action: 'Suspend', path: 'M 470 100 L 470 460', textX: 520, textY: 270 },
 ];
@@ -119,14 +119,14 @@ const TwoDView = ({ onBack }) => {
       <div className="p-4 px-6 flex justify-between items-center bg-supa-bg border-b border-supa-border z-10">
         <h2 className="text-xl font-medium tracking-tight text-supa-text flex items-center gap-3">
           <div className="w-2 h-2 rounded-full bg-supa-green shadow-[0_0_8px_rgba(62,207,142,0.6)]"></div>
-          2-D Process Lifecycle
+          <span className='text-md font-bold text-supa-text tracking-widest'>2-D Process Flowchart</span>
         </h2>
         <button 
           onClick={onBack}
           className="flex items-center gap-2 px-4 py-1.5 bg-transparent border border-supa-border hover:border-supa-border-light text-supa-text rounded-full transition-all text-sm font-medium cursor-pointer"
         >
           <ArrowLeft size={16} />
-          Back to Menu
+          <span className='text-sm font-semibold text-supa-text'>Back to Menu</span>
         </button>
       </div>
 
@@ -188,7 +188,7 @@ const TwoDView = ({ onBack }) => {
             <div className="flex-1 glass-panel p-6 border border-supa-border">
               <div className="flex items-center gap-2 mb-2">
                 <h3 className="mono-label text-supa-green-light">CURRENT STATE:</h3>
-                <span className="text-sm font-bold text-supa-text uppercase tracking-widest">{currentState}</span>
+                <span className="text-sm font-bold text-supa-text">{currentState}</span>
               </div>
               <p className="text-supa-text-muted text-sm leading-relaxed">
                 {currentStateInfo.info}
