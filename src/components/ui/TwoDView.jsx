@@ -48,27 +48,27 @@ const stateMachineLogic = {
 };
 
 const nodes = {
-  "New": { x: 150, y: 200, memory: "Sec. Memory" },
-  "Ready": { x: 450, y: 200, memory: "Main Memory" },
-  "Running": { x: 850, y: 200, memory: "Main Memory" },
-  "Blocked": { x: 650, y: 420, memory: "Main Memory" },
-  "Exit": { x: 1100, y: 200, memory: "None" },
-  "Suspended Ready": { x: 450, y: 650, memory: "Sec. Memory" },
-  "Suspended Blocked": { x: 650, y: 650, memory: "Sec. Memory" },
+  "New": { x: 150, y: 50, memory: "Sec. Memory" },
+  "Ready": { x: 450, y: 50, memory: "Main Memory" },
+  "Running": { x: 850, y: 50, memory: "Main Memory" },
+  "Blocked": { x: 650, y: 270, memory: "Main Memory" },
+  "Exit": { x: 1100, y: 50, memory: "None" },
+  "Suspended Ready": { x: 450, y: 500, memory: "Sec. Memory" },
+  "Suspended Blocked": { x: 650, y: 500, memory: "Sec. Memory" },
 };
 
 const transitionsRender = [
-  { from: 'New', to: 'Ready', action: 'Admit', path: 'M 214 200 L 376 200', textX: 295, textY: 190 },
-  { from: 'Ready', to: 'Running', action: 'Dispatch', path: 'M 514 180 L 776 180', textX: 645, textY: 170 },
-  { from: 'Running', to: 'Ready', action: 'Timeout', path: 'M 776 220 L 514 220', textX: 645, textY: 235 },
-  { from: 'Running', to: 'Blocked', action: 'Event wait', path: 'M 820 240 L 700 380', textX: 770, textY: 310 },
-  { from: 'Running', to: 'Exit', action: 'Release', path: 'M 914 200 L 1026 200', textX: 970, textY: 190 },
-  { from: 'Blocked', to: 'Ready', action: 'Event occur', path: 'M 600 380 L 500 240', textX: 530, textY: 310 },
-  { from: 'Blocked', to: 'Suspended Blocked', action: 'Suspend', path: 'M 670 460 L 670 600', textX: 720, textY: 530 },
-  { from: 'Suspended Blocked', to: 'Blocked', action: 'Activate', path: 'M 630 600 L 630 460', textX: 580, textY: 530 },
-  { from: 'Suspended Blocked', to: 'Suspended Ready', action: 'Event occur', path: 'M 586 650 L 524 650', textX: 555, textY: 640 },
-  { from: 'Suspended Ready', to: 'Ready', action: 'Activate', path: 'M 430 600 L 430 240', textX: 380, textY: 420 },
-  { from: 'Ready', to: 'Suspended Ready', action: 'Suspend', path: 'M 470 240 L 470 600', textX: 520, textY: 420 },
+  { from: 'New', to: 'Ready', action: 'Admit', path: 'M 214 60 L 376 60', textX: 295, textY: 40 },
+  { from: 'Ready', to: 'Running', action: 'Dispatch', path: 'M 514 40 L 776 40', textX: 645, textY: 20 },
+  { from: 'Running', to: 'Ready', action: 'Timeout', path: 'M 776 80 L 514 80', textX: 645, textY: 85 },
+  { from: 'Running', to: 'Blocked', action: 'Event wait', path: 'M 820 100 L 700 240', textX: 770, textY: 160 },
+  { from: 'Running', to: 'Exit', action: 'Release', path: 'M 914 60 L 1026 60', textX: 970, textY: 40 },
+  { from: 'Blocked', to: 'Ready', action: 'Event occur', path: 'M 600 240 L 500 100', textX: 530, textY: 160 },
+  { from: 'Blocked', to: 'Suspended Blocked', action: 'Suspend', path: 'M 670 320 L 670 460', textX: 720, textY: 380 },
+  { from: 'Suspended Blocked', to: 'Blocked', action: 'Activate', path: 'M 630 460 L 630 320', textX: 580, textY: 380 },
+  { from: 'Suspended Blocked', to: 'Suspended Ready', action: 'Event occur', path: 'M 586 510 L 524 510', textX: 555, textY: 490 },
+  { from: 'Suspended Ready', to: 'Ready', action: 'Activate', path: 'M 430 460 L 430 100', textX: 380, textY: 270 },
+  { from: 'Ready', to: 'Suspended Ready', action: 'Suspend', path: 'M 470 100 L 470 460', textX: 520, textY: 270 },
 ];
 
 const TwoDView = ({ onBack }) => {
@@ -134,7 +134,7 @@ const TwoDView = ({ onBack }) => {
         <div className="w-full max-w-[1300px] flex flex-col items-center">
            
           {/* Diagram Layout */}
-          <div className="relative w-[1250px] h-[750px] mb-8 overflow-hidden">
+          <div className="relative w-[1250px] h-[570px] mb-8 overflow-hidden">
             
             {/* SVG for lines and arrows */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -219,7 +219,7 @@ const TwoDView = ({ onBack }) => {
                     onClick={() => setCurrentState('New')}
                     className="btn-secondary rounded-md"
                   >
-                   Restart OS Process
+                   Restart Simulation
                   </button>
                 </div>
               )}
