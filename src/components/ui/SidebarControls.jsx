@@ -33,7 +33,7 @@ export default function SidebarControls() {
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
           }`}
         >
-          <span className="text-sm font-medium">Admit Process</span>
+          <span className="text-sm font-medium">Admit</span>
           <ChevronRight size={16} />
         </button>
 
@@ -47,7 +47,7 @@ export default function SidebarControls() {
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
           }`}
         >
-          <span className="text-sm font-medium">Schedule (Execute)</span>
+          <span className="text-sm font-medium">Dispatch</span>
           <Play size={16} />
         </button>
 
@@ -61,7 +61,7 @@ export default function SidebarControls() {
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
           }`}
         >
-          <span className="text-sm font-medium">Preempt (Timeout)</span>
+          <span className="text-sm font-medium">Timeout</span>
           <Pause size={16} />
         </button>
 
@@ -75,7 +75,7 @@ export default function SidebarControls() {
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
           }`}
         >
-          <span className="text-sm font-medium">I/O Request</span>
+          <span className="text-sm font-medium">Event wait</span>
           <Disc size={16} />
         </button>
 
@@ -89,7 +89,7 @@ export default function SidebarControls() {
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
           }`}
         >
-          <span className="text-sm font-medium">I/O Completion</span>
+          <span className="text-sm font-medium">Event occur</span>
           <ChevronRight size={16} />
         </button>
 
@@ -103,7 +103,7 @@ export default function SidebarControls() {
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
           }`}
         >
-          <span className="text-sm font-medium">Swap Out (Disk)</span>
+          <span className="text-sm font-medium">Suspend</span>
           <HardDriveUpload size={16} />
         </button>
 
@@ -117,7 +117,7 @@ export default function SidebarControls() {
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
           }`}
         >
-          <span className="text-sm font-medium">Swap In (RAM)</span>
+          <span className="text-sm font-medium">Activate</span>
           <HardDriveDownload size={16} />
         </button>
 
@@ -131,7 +131,7 @@ export default function SidebarControls() {
               : 'border-supa-border-subtle opacity-50 cursor-not-allowed'
           }`}
         >
-          <span className="text-sm font-medium">Terminate / Exit</span>
+          <span className="text-sm font-medium">Release</span>
           <PowerOff size={16} />
         </button>
       </div>
