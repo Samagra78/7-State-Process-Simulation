@@ -16,7 +16,7 @@ export default function SidebarControls() {
   } = useProcessStore();
 
   return (
-    <div className="absolute left-6 top-1/2 -translate-y-1/2 w-80 glass-panel p-6 flex flex-col gap-6 z-10 text-supa-text">
+    <div className="absolute left-6 top-[80px] w-80 max-h-[calc(100vh-100px)] overflow-y-auto overflow-x-hidden p-6 glass-panel flex flex-col gap-6 z-10 text-supa-text hide-scrollbar">
       <div>
         <h2 className="text-xl font-medium mb-1 truncate">Process Control</h2>
         <p className="text-xs text-supa-text-muted mono-label">System Interrupts</p>
