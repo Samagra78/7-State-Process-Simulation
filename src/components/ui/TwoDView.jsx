@@ -198,7 +198,7 @@ const TwoDView = ({ onBack }) => {
             <div className="flex-[2] glass-panel p-6 border border-supa-border">
               {currentStateInfo.available_transitions.length > 0 ? (
                 <>
-                  <h4 className="mono-label mb-4 text-supa-text-muted tracking-[1px]">Dispatch System Action</h4>
+                  <h4 className="mono-label mb-4 pb-2 text-supa-text-muted tracking-[1px]">Dispatch System Action</h4>
                   <div className="flex flex-wrap gap-3">
                     {currentStateInfo.available_transitions.map((transition, idx) => (
                       <button
